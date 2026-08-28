@@ -100,6 +100,8 @@ def plot_iap_impact(df):
     plt.savefig(plot_path, dpi=300)
     print(f"Plot saved to '{plot_path}'")
 
+from arima_forecasting import run_arima_pipeline
+
 if __name__ == "__main__":
     print("Initializing empirical analysis pipeline...")
     df = generate_mock_panel_data()
@@ -107,4 +109,8 @@ if __name__ == "__main__":
     run_difference_in_differences(df)
     plot_event_study(df)
     plot_iap_impact(df)
-    print(f"Analysis complete. Check '{PLOTS_DIR}' directory for outputs.")
+    
+    print("\n--- Executing ARIMA Time Series Forecasting ---")
+    run_arima_pipeline()
+    
+    print(f"\nAnalysis complete. Check '{PLOTS_DIR}' directory for all outputs.")

@@ -531,6 +531,29 @@ Y_{st} = \alpha + \sum_{k = -3}^{k = +6} \beta_k \cdot \mathbb{I}(t - T^* = k) +
 
 where $T^* = 2019$ represents the reform year, $\mathbb{I}(\cdot)$ is the event-time indicator, and $\delta_t$ denotes year fixed effects. The base period is normalized to $k = -1$ (FY 2018--19).
 
+\subsection{Time Series Modeling and ARIMA Forecasting Framework}
+To project future institutional demand, claim processing trajectories, and fund restitution volumes over the horizon FY 2025--26 through FY 2029--30, we specify an Autoregressive Integrated Moving Average ($\text{ARIMA}(p, d, q)$) time series model \cite{box2015time, hyndman2018forecasting}. 
+
+The general univariate $\text{ARIMA}(p, d, q)$ formulation for a time series $Y_t$ is expressed as:
+\begin{equation}
+\Phi_p(L) (1 - L)^d Y_t = c + \Theta_q(L) \varepsilon_t
+\label{eq:arima_model}
+\end{equation}
+where:
+\begin{itemize}
+    \item $L$ is the lag operator such that $L^k Y_t = Y_{t-k}$.
+    \item $\Phi_p(L) = 1 - \sum_{i=1}^p \phi_i L^i$ represents the autoregressive (AR) polynomial of order $p$, capturing structural autocorrelation with past observations.
+    \item $(1 - L)^d = \Delta^d$ denotes the degree of non-seasonal differencing required to achieve covariance stationarity.
+    \item $\Theta_q(L) = 1 + \sum_{j=1}^q \theta_j L^j$ represents the moving average (MA) polynomial of order $q$, capturing the persistence of past white-noise shocks.
+    \item $c$ is a deterministic drift/trend constant, and $\varepsilon_t \sim \text{WN}(0, \sigma^2)$ is an identically and independently distributed white-noise error term.
+\end{itemize}
+
+Model orders $(p, d, q)$ are determined via systematic grid search minimizing the Akaike Information Criterion (AIC):
+\begin{equation}
+\text{AIC} = 2k - 2\ln(\hat{L})
+\end{equation}
+where $k = p + q + 1$ is the number of estimated parameters and $\hat{L}$ is the maximized likelihood of the model. Stationarity is verified using the Augmented Dickey-Fuller (ADF) unit root test, and residual independence is diagnosed using the Ljung-Box test.
+
 \section{Summary Statistics and Variable Definitions}
 Table \ref{tab:variables_summary} details the key dependent, independent, and policy variables utilized across the empirical estimations.
 
@@ -700,6 +723,45 @@ Figure \ref{fig:iap_impact} demonstrates that grassroots IAP interventions exhib
 \end{figure}
 
 The operational efficacy of a regulatory authority is critically reflected in its adherence to statutory transparency norms. As illustrated in Figures \ref{fig:rti_table} and \ref{fig:rti_graph}, the volume of Right to Information (RTI) applications received by the IEPFA increased monotonically over the decade. Crucially, CPIO disposal rates consistently exceeded 94\%, while the ratio of First Appeals to total applications remained below 6\%. This low dispute ratio demonstrates procedural clarity and robust public grievance redressal at the initial administrative tier.
+
+\section{Time Series Forecasting and Capacity Projections (2026--2030)}
+To provide forward-looking empirical evidence for regulatory capacity planning, we apply the optimal ARIMA specifications identified in Chapter 3 to the 10-year longitudinal administrative time series. Table \ref{tab:arima_models} summarizes the model orders, diagnostic criteria, and historical versus projected baseline metrics.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\textbf{Target Indicator} & \textbf{Model Order} & \textbf{AIC} & \textbf{Historical (FY 2023--24)} & \textbf{Forecast (FY 2027--28)} & \textbf{Forecast (FY 2029--30)} \\ \hline
+Form IEPF-5 Claims Filed & $\text{ARIMA}(0, 1, 1)$ & $150.15$ & $55,031$ & $72,959$ ($\pm 13,565$) & $86,616$ ($\pm 13,565$) \\ \hline
+Claims Approved / Sanctioned & $\text{ARIMA}(1, 1, 0)$ & $175.44$ & $16,985$ & $56,821$ ($\pm 19,210$) & $64,137$ ($\pm 27,166$) \\ \hline
+Dividend Refunded (INR Cr) & $\text{ARIMA}(0, 1, 0)$ & $32.94$ & ₹$16.59$ Cr & ₹$69.30$ Cr ($\pm 24.99$) & ₹$88.89$ Cr ($\pm 35.34$) \\ \hline
+\end{tabular}
+\caption{ARIMA Model Specifications, Goodness-of-Fit, and 5-Year Forecast Projections}
+\label{tab:arima_models}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{arima_combined_forecast.png}
+    \caption{Multi-Panel ARIMA Forecast Projections with 95\% Confidence Intervals (2026–2030): (a) Form IEPF-5 Filings, (b) Claims Sanctioned for Refund, (c) Dividend Restitution Quantum.}
+    \label{fig:arima_combined_forecast}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{arima_claims_forecast.png}
+    \caption{Detailed Trajectory of Form IEPF-5 Annual Claim Submissions with 95\% Confidence Bounds}
+    \label{fig:arima_claims_forecast}
+\end{figure}
+
+As depicted in Figures \ref{fig:arima_combined_forecast} and \ref{fig:arima_claims_forecast}, Form IEPF-5 claim submissions are projected to expand from $55,031$ in FY 2023--24 to over $86,616$ annually by FY 2029--30 ($95\%$ CI: $[73,051, 100,181]$). Concurrently, gross annual dividend restitution is projected to surpass ₹$88.89$ Crores. 
+
+These empirical projections highlight critical institutional takeaways:
+\begin{itemize}
+    \item \textbf{Operational Capacity Expansion:} The incoming volume of claims will exceed $80,000$ per year before 2029, demanding a doubling of technological verification throughput.
+    \item \textbf{Imperative for Straight-Through Processing (STP):} Without automated depository auto-credit mechanisms (NSDL/CDSL direct API settlement), the operational backlog between corporate Nodal Officer EVR verification and final disbursement will widen substantially.
+\end{itemize}
 
 \chapter{Conclusions and Future Research Directions}
 

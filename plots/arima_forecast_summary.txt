@@ -1,0 +1,59 @@
+=================================================================
+   IEPFA ARIMA TIME SERIES FORECASTING AND CAPACITY PROJECTIONS  
+=================================================================
+
+1. FORM IEPF-5 CLAIMS SUBMITTED
+Model: ARIMA(0, 1, 1) | AIC: 150.15
+Historical Actuals:
+  FY 2017-18: 4,026
+  FY 2018-19: 19,188
+  FY 2019-20: 16,166
+  FY 2020-21: 14,032
+  FY 2021-22: 28,647
+  FY 2022-23: 37,920
+  FY 2023-24: 55,031
+  FY 2024-25: 51,449
+Projected Forecast (with 95% Confidence Interval):
+  FY 2025-26: 59,301  [95% CI: 45,736 to 72,866]
+  FY 2026-27: 66,130  [95% CI: 52,565 to 79,695]
+  FY 2027-28: 72,959  [95% CI: 59,393 to 86,524]
+  FY 2028-29: 79,787  [95% CI: 66,222 to 93,353]
+  FY 2029-30: 86,616  [95% CI: 73,051 to 100,181]
+
+-----------------------------------------------------------------
+
+2. CLAIMS APPROVED / SANCTIONED FOR REFUND
+Model: ARIMA(1, 1, 0) | AIC: 175.44
+Historical Actuals:
+  FY 2017-18: 155
+  FY 2018-19: 712
+  FY 2019-20: 6,989
+  FY 2020-21: 7,262
+  FY 2021-22: 10,472
+  FY 2022-23: 10,989
+  FY 2023-24: 16,985
+  FY 2024-25: 12,749
+  FY 2025-26: 49,505
+Projected Forecast (with 95% Confidence Interval):
+  FY 2026-27: 20,065  [95% CI: 855 to 39,275]
+  FY 2027-28: 56,821  [95% CI: 37,611 to 76,031]
+  FY 2028-29: 27,381  [95% CI: 214 to 54,547]
+  FY 2029-30: 64,137  [95% CI: 36,970 to 91,303]
+
+-----------------------------------------------------------------
+
+3. DIVIDEND AMOUNT REFUNDED (INR CRORES)
+Model: ARIMA(0, 1, 0) | AIC: 32.94
+Historical Actuals:
+  FY 2021-22: INR 10.53 Cr
+  FY 2022-23: INR 11.54 Cr
+  FY 2023-24: INR 16.59 Cr
+  FY 2024-25: INR 24.97 Cr
+  FY 2025-26: INR 49.71 Cr
+Projected Forecast (with 95% Confidence Interval):
+  FY 2026-27: INR 59.50 Cr  [95% CI: INR 41.84 to INR 77.17 Cr]
+  FY 2027-28: INR 69.30 Cr  [95% CI: INR 44.31 to INR 94.29 Cr]
+  FY 2028-29: INR 79.09 Cr  [95% CI: INR 48.49 to INR 109.70 Cr]
+  FY 2029-30: INR 88.89 Cr  [95% CI: INR 53.55 to INR 124.23 Cr]
+
+=================================================================
