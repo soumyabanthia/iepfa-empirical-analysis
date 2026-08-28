@@ -1,0 +1,35 @@
+Difference-in-Differences / Fixed Effects Regression Results
+Dependent Variable: Claim Approval Rate
+=================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          approval_rate   R-squared:                       0.856
+Model:                            OLS   Adj. R-squared:                  0.838
+Method:                 Least Squares   F-statistic:                     45.47
+Date:                Sat, 29 Aug 2026   Prob (F-statistic):           7.19e-23
+Time:                        00:52:25   Log-Likelihood:                 129.71
+No. Observations:                  70   AIC:                            -241.4
+Df Residuals:                      61   BIC:                            -221.2
+Df Model:                           8                                         
+Covariance Type:            nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                     0.3282      0.028     11.589      0.000       0.272       0.385
+C(state)[T.Gujarat]          -0.0098      0.018     -0.541      0.591      -0.046       0.027
+C(state)[T.Karnataka]        -0.0141      0.018     -0.777      0.440      -0.050       0.022
+C(state)[T.Maharashtra]      -0.0318      0.018     -1.752      0.085      -0.068       0.005
+C(state)[T.Tamil Nadu]        0.0159      0.019      0.855      0.396      -0.021       0.053
+C(state)[T.Uttar Pradesh]    -0.0294      0.018     -1.603      0.114      -0.066       0.007
+C(state)[T.West Bengal]      -0.0005      0.018     -0.030      0.976      -0.037       0.036
+post_2019_reform              0.2320      0.033      6.931      0.000       0.165       0.299
+iap_programs_count           -0.0005      0.000     -1.050      0.298      -0.001       0.000
+==============================================================================
+Omnibus:                        0.927   Durbin-Watson:                   2.245
+Prob(Omnibus):                  0.629   Jarque-Bera (JB):                0.971
+Skew:                           0.258   Prob(JB):                        0.615
+Kurtosis:                       2.743   Cond. No.                         934.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

@@ -1,0 +1,30 @@
+# Project specific ignores
+/reports/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# LaTeX build & auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# OS files
+.DS_Store
+Thumbs.db
