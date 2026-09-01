@@ -6,8 +6,8 @@ Dependent Variable: Claim Approval Rate
 Dep. Variable:          approval_rate   R-squared:                       0.856
 Model:                            OLS   Adj. R-squared:                  0.838
 Method:                 Least Squares   F-statistic:                     45.47
-Date:                Sat, 29 Aug 2026   Prob (F-statistic):           7.19e-23
-Time:                        01:46:38   Log-Likelihood:                 129.71
+Date:                Tue, 01 Sep 2026   Prob (F-statistic):           7.19e-23
+Time:                        16:39:08   Log-Likelihood:                 129.71
 No. Observations:                  70   AIC:                            -241.4
 Df Residuals:                      61   BIC:                            -221.2
 Df Model:                           8                                         

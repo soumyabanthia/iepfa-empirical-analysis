@@ -1,12 +1,27 @@
-IEPFA Empirical Analysis
+# IEPFA Empirical Analysis
 
-Analysis of unclaimed financial assets and IEPFA reforms in India (2016-2026).
+Empirical analysis and time series forecasting of unclaimed financial assets under the Investor Education and Protection Fund Authority (IEPFA) in India.
 
-Contents:
-- data: dataset files
-- scripts: python analysis script
-- plots: output plots and regression results
-- paper: report documents
+## Setup
 
-To run:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+Run the main analysis pipeline:
+
+```bash
 python scripts/empirical_analysis.py
+```
+
+This estimates the regression models, produces the event study and awareness campaign figures, and runs the ARIMA forecasting models.
+
+## Project Structure
+
+- `data/`: Excel data files
+- `scripts/`: Python scripts for empirical analysis and ARIMA models
+- `plots/`: Output figures, regression results, and forecast summaries
+- `paper/`: LaTeX report files and figures
+

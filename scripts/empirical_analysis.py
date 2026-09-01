@@ -14,7 +14,7 @@ DATA_DIR = os.path.join(PROJECT_ROOT, 'data')
 sns.set_theme(style="whitegrid")
 plt.rcParams.update({'font.size': 12})
 
-# load excel data or fallback to mock data
+# load dataset or mock data if missing
 def load_and_clean_data(filepath):
     try:
         df = pd.read_excel(filepath, sheet_name=None)
@@ -23,7 +23,7 @@ def load_and_clean_data(filepath):
         print(f"Warning: Could not load {filepath}. Ensure data exists. Error: {e}")
         return generate_mock_panel_data()
 
-# create synthetic panel dataset
+# generate mock panel data for testing
 def generate_mock_panel_data():
     np.random.seed(42)
     years = list(range(2016, 2026))
@@ -50,7 +50,7 @@ def generate_mock_panel_data():
             
     return pd.DataFrame(data)
 
-# run diff-in-diff regression with state fixed effects
+# run diff-in-diff regression
 def run_difference_in_differences(df):
     print("--- Estimating Impact of 2019 Regulatory Digitization Reform ---")
     
@@ -66,7 +66,7 @@ def run_difference_in_differences(df):
         f.write(model.summary().as_text())
     print(f"\nRegression results saved to '{results_path}'")
 
-# plot claim approval rate trend around 2019 reform
+# plot approval rate trend around 2019 reform
 def plot_event_study(df):
     yearly_avg = df.groupby('year')['approval_rate'].mean().reset_index()
     
@@ -85,7 +85,7 @@ def plot_event_study(df):
     plt.savefig(plot_path, dpi=300)
     print(f"Plot saved to '{plot_path}'")
 
-# scatter plot of investor awareness programs vs claims
+# plot iap programs vs claim submissions
 def plot_iap_impact(df):
     plt.figure(figsize=(10, 6))
     sns.regplot(data=df, x='iap_programs_count', y='claims_submitted', 
