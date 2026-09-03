@@ -1,0 +1,116 @@
+Microeconometric Estimation: Household Welfare & Capital Reallocation
+===========================================================================
+
+MODEL 1: MARGINAL PROPENSITY TO CONSUME (MPC)
+--------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                    mpc   R-squared:                       0.566
+Model:                            OLS   Adj. R-squared:                  0.564
+Method:                 Least Squares   F-statistic:                     365.4
+Date:                Thu, 03 Sep 2026   Prob (F-statistic):               0.00
+Time:                        15:31:01   Log-Likelihood:                 2492.8
+No. Observations:                2500   AIC:                            -4962.
+Df Residuals:                    2488   BIC:                            -4892.
+Df Model:                          11                                         
+Covariance Type:                  HC1                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                    -0.1496      0.046     -3.231      0.001      -0.240      -0.059
+C(state)[T.Gujarat]           0.0108      0.006      1.680      0.093      -0.002       0.023
+C(state)[T.Karnataka]         0.0127      0.007      1.895      0.058      -0.000       0.026
+C(state)[T.Maharashtra]       0.0025      0.006      0.419      0.675      -0.009       0.014
+C(state)[T.Rajasthan]         0.0062      0.009      0.717      0.473      -0.011       0.023
+C(state)[T.Tamil Nadu]        0.0048      0.007      0.708      0.479      -0.009       0.018
+C(state)[T.Uttar Pradesh]     0.0030      0.007      0.428      0.668      -0.011       0.017
+C(state)[T.West Bengal]       0.0162      0.008      2.026      0.043       0.001       0.032
+log_restituted_amount     -7.308e-05      0.002     -0.044      0.965      -0.003       0.003
+liquidity_constrained         0.1207      0.004     29.308      0.000       0.113       0.129
+np.log(annual_income)         0.0624      0.003     19.824      0.000       0.056       0.069
+financial_literacy_score     -0.0464      0.001    -47.516      0.000      -0.048      -0.044
+==============================================================================
+Omnibus:                       21.733   Durbin-Watson:                   2.063
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               14.621
+Skew:                           0.021   Prob(JB):                     0.000669
+Kurtosis:                       2.628   Cond. No.                         428.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)
+
+MODEL 2: CAPITAL MARKET REINVESTMENT RATE
+--------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:      reinvestment_rate   R-squared:                       0.539
+Model:                            OLS   Adj. R-squared:                  0.536
+Method:                 Least Squares   F-statistic:                     319.1
+Date:                Thu, 03 Sep 2026   Prob (F-statistic):               0.00
+Time:                        15:31:01   Log-Likelihood:                 1578.3
+No. Observations:                2500   AIC:                            -3133.
+Df Residuals:                    2488   BIC:                            -3063.
+Df Model:                          11                                         
+Covariance Type:                  HC1                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                     1.2242      0.067     18.335      0.000       1.093       1.355
+C(state)[T.Gujarat]          -0.0167      0.009     -1.794      0.073      -0.035       0.002
+C(state)[T.Karnataka]        -0.0191      0.010     -1.971      0.049      -0.038      -0.000
+C(state)[T.Maharashtra]      -0.0063      0.008     -0.743      0.458      -0.023       0.010
+C(state)[T.Rajasthan]        -0.0095      0.012     -0.765      0.444      -0.034       0.015
+C(state)[T.Tamil Nadu]       -0.0100      0.010     -1.006      0.314      -0.030       0.009
+C(state)[T.Uttar Pradesh]    -0.0095      0.010     -0.919      0.358      -0.030       0.011
+C(state)[T.West Bengal]      -0.0228      0.011     -2.032      0.042      -0.045      -0.001
+log_restituted_amount         0.0011      0.002      0.462      0.644      -0.004       0.006
+liquidity_constrained        -0.2033      0.006    -34.338      0.000      -0.215      -0.192
+np.log(annual_income)        -0.0909      0.005    -19.805      0.000      -0.100      -0.082
+financial_literacy_score      0.0591      0.001     42.139      0.000       0.056       0.062
+==============================================================================
+Omnibus:                       20.879   Durbin-Watson:                   2.065
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               14.103
+Skew:                          -0.012   Prob(JB):                     0.000866
+Kurtosis:                       2.633   Cond. No.                         428.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)
+
+MODEL 3: DEBT SERVICING & DELEVERAGING RATE
+--------------------------------------------------
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:       debt_payoff_rate   R-squared:                       0.358
+Model:                            OLS   Adj. R-squared:                  0.356
+Method:                 Least Squares   F-statistic:                     140.5
+Date:                Thu, 03 Sep 2026   Prob (F-statistic):          2.13e-251
+Time:                        15:31:01   Log-Likelihood:                 3714.6
+No. Observations:                2500   AIC:                            -7405.
+Df Residuals:                    2488   BIC:                            -7335.
+Df Model:                          11                                         
+Covariance Type:                  HC1                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                    -0.0746      0.027     -2.723      0.006      -0.128      -0.021
+C(state)[T.Gujarat]           0.0059      0.004      1.486      0.137      -0.002       0.014
+C(state)[T.Karnataka]         0.0064      0.004      1.513      0.130      -0.002       0.015
+C(state)[T.Maharashtra]       0.0038      0.004      1.053      0.292      -0.003       0.011
+C(state)[T.Rajasthan]         0.0034      0.005      0.649      0.516      -0.007       0.013
+C(state)[T.Tamil Nadu]        0.0052      0.004      1.229      0.219      -0.003       0.013
+C(state)[T.Uttar Pradesh]     0.0065      0.004      1.437      0.151      -0.002       0.015
+C(state)[T.West Bengal]       0.0066      0.005      1.401      0.161      -0.003       0.016
+log_restituted_amount        -0.0010      0.001     -1.020      0.308      -0.003       0.001
+liquidity_constrained         0.0826      0.002     33.051      0.000       0.078       0.087
+np.log(annual_income)         0.0284      0.002     15.235      0.000       0.025       0.032
+financial_literacy_score     -0.0127      0.001    -20.514      0.000      -0.014      -0.011
+==============================================================================
+Omnibus:                        6.975   Durbin-Watson:                   2.028
+Prob(Omnibus):                  0.031   Jarque-Bera (JB):                5.696
+Skew:                          -0.011   Prob(JB):                       0.0580
+Kurtosis:                       2.767   Cond. No.                         428.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC1)
